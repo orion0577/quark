@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# ONLY create scratch if missing
+if ! tmux list-windows -F "#{window_name}" 2>/dev/null | grep -qx "scratch"; then
+    tmux new-window -d -n scratch
+fi
+
+clear

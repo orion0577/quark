@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+mkdir -p "$HOME/personal/notes"
+file="$HOME/personal/notes/$(date +%Y-%m-%d).md"
+
+if [[ -n "$TMUX" ]]; then
+    if tmux list-windows -F "#{window_name}" | grep -qx "notes"; then
+        tmux select-window -t notes
+    else
+        tmux new-window -n notes "nvim '$file'"
+    fi
+else
+    nvim "$file"
+fi

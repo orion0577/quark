@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+paru -S --noconfirm --needed fzf btop ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ghostty fzf neovim tmux localsend brightnessctl ripgrep zen-browser-bin
+
+#ZSH INSTALL
+
+sudo pacman -S zsh
+hash -r
+sudo chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+

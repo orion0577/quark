@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git ~/paru
+pushd ~/paru
+makepkg -si
+popd
+

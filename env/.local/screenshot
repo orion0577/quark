@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Select region; exit if Esc is pressed
+geometry=$(slurp -d) || exit 0
+
+# Prompt for filename; exit if Esc is pressed
+filename=$(echo "" | rofi -dmenu -p "Screenshot name:") || exit 0
+
+# Exit if empty filename
+[ -z "$filename" ] && exit 0
+
+grim -g "$geometry" "$HOME/Pictures/Screenshots/${filename}.png"

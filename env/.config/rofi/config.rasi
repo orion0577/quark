@@ -1,0 +1,144 @@
+configuration {
+    modi: "drun,run";
+    show-icons: false;
+    font: "JetBrainsMono Nerd Font 12";
+    drun-display-format: "{name}";
+
+    display-drun: "";
+    display-run: "";
+}
+
+/* =======================
+   COLORS
+   ======================= */
+
+* {
+    bg: #2f2f2f;
+    fg: #a3a3a3;
+    sel: #ffffff;
+    line: #ffffff;
+
+    background-color: @bg;
+    text-color: @fg;
+
+    /* kill default theme colors */
+    foreground: @fg;
+    separatorcolor: @line;
+    border-color: @line;
+}
+
+
+/* =======================
+   WINDOW
+   ======================= */
+
+window {
+    width: 420px;
+    padding: 10px;
+    background-color: @bg;
+    border: 0;
+}
+
+
+/* =======================
+   MAIN
+   ======================= */
+
+mainbox {
+    spacing: 6px;
+    padding: 6px;
+    background-color: @bg;
+}
+
+
+/* =======================
+   INPUT
+   ======================= */
+
+inputbar {
+    background-color: @bg;
+    children: [ prompt, entry ];
+    border: 0;
+}
+
+prompt {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+entry {
+    background-color: @bg;
+    text-color: @fg;
+
+    placeholder: "Search";
+    placeholder-color: #666666;
+
+    border: 0;
+}
+
+
+/* =======================
+   SEPARATOR
+   ======================= */
+
+separator {
+    background-color: @line;
+    border-color: @line;
+    color: @line;
+}
+
+
+/* =======================
+   LIST
+   ======================= */
+
+listview {
+    background-color: @bg;
+
+    spacing: 2px;
+    scrollbar: false;
+
+    border: 0;
+}
+
+
+/* =======================
+   ITEMS
+   ======================= */
+
+element {
+    background-color: @bg;
+    text-color: @fg;
+
+    padding: 6px;
+    border: 0;
+}
+
+element normal.normal {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+element alternate.normal {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @bg;
+    text-color: @sel;
+}
+
+
+/* =======================
+   ICON / TEXT
+   ======================= */
+
+element-text {
+    background-color: @bg;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: @bg;
+}
