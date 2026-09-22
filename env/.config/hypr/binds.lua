@@ -5,7 +5,7 @@ local RESIZE_STEP = 50
 -- Applications
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("ghostty"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("zen-browser"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("librewolf"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("zotero"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("flatpak run org.jeffvli.feishin"))
 -- Window navigation

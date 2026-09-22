@@ -2,17 +2,13 @@ require("overlord.set")
 require("overlord.remap")
 require("overlord.lazy_init")
 
--- DO.not
--- DO NOT INCLUDE THIS
-
--- If i want to keep doing lsp debugging
--- function restart_htmx_lsp()
---     require("lsp-debug-tools").restart({ expected = {}, name = "htmx-lsp", cmd = { "htmx-lsp", "--level", "DEBUG" }, root_dir = vim.loop.cwd(), });
--- end
-
--- DO NOT INCLUDE THIS
--- DO.not
-
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
+})
 
 local augroup = vim.api.nvim_create_augroup
 local overlordGroup = augroup('overlord', {})
