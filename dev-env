@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEV_ENV="$HOME/personal/dev-env"
+DEV_ENV="$HOME/personal/quark"
 dry_run="0"
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
