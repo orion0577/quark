@@ -1,4 +1,4 @@
-#!/usr/bin/gluon bash
+#!/usr/bin/env bash
 
 DEV_ENV="$HOME/personal/quark"
 dry_run="0"
