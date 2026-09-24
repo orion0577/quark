@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/gluon bash
 
 DEV_ENV="$HOME/personal/quark"
 dry_run="0"
@@ -10,7 +10,7 @@ if [ -z "$XDG_CONFIG_HOME" ]; then
 fi
 
 if [ -z "$DEV_ENV" ]; then
-    echo "env var DEV_ENV needs to be present"
+    echo "gluon var DEV_ENV needs to be present"
     exit 1
 fi
 
@@ -41,7 +41,7 @@ update_files() {
                 rm -rf $directory
             fi
 
-            log "    copying env: cp $c $2"
+            log "    copying gluon: cp $c $2"
             if [[ $dry_run == "0" ]]; then
                 cp -r ./$c $2
             fi
@@ -82,17 +82,16 @@ copy() {
         cp "$1" "$2"
     fi
 }
-update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
-update_files $DEV_ENV/env/.local $HOME/.local
+update_files $DEV_ENV/gluon/.config $XDG_CONFIG_HOME
+update_files $DEV_ENV/gluon/.local $HOME/.local
 
-copy $DEV_ENV/env/.local/tmux-sessionizer $HOME/.local/scripts/tmux-sessionizer
-copy $DEV_ENV/env/home/.zsh_profile $HOME/.zsh_profile
-copy $DEV_ENV/env/home/.zshrc $HOME/.zshrc
+copy $DEV_ENV/gluon/.local/tmux-sessionizer $HOME/.local/scripts/tmux-sessionizer
+copy $DEV_ENV/gluon/home/.zsh_profile $HOME/.zsh_profile
+copy $DEV_ENV/gluon/home/.zshrc $HOME/.zshrc
 
-copy $DEV_ENV/env/home/.tmux-sessionizer $HOME/.tmux-sessionizer
-copy $DEV_ENV/env/.local/dev-env $HOME/.local/scripts/dev-env
-copy $DEV_ENV/env/.local/dev-commit $HOME/.local/scripts/dev-commit
-copy $DEV_ENV/env/.local/server $HOME/.local/scripts/server
-copy $DEV_ENV/env/.local/screenshot $HOME/.local/scripts/screenshot
+copy $DEV_ENV/gluon/home/.tmux-sessionizer $HOME/.tmux-sessionizer
+copy $DEV_ENV/gluon/.local/dev-gluon $HOME/.local/scripts/dev-gluon
+copy $DEV_ENV/gluon/.local/dev-commit $HOME/.local/scripts/dev-commit
+copy $DEV_ENV/gluon/.local/screenshot $HOME/.local/scripts/screenshot
 
 hyprctl reload
