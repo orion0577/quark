@@ -90,7 +90,7 @@ copy $DEV_ENV/gluon/home/.zsh_profile $HOME/.zsh_profile
 copy $DEV_ENV/gluon/home/.zshrc $HOME/.zshrc
 
 copy $DEV_ENV/gluon/home/.tmux-sessionizer $HOME/.tmux-sessionizer
-copy $DEV_ENV/gluon/.local/dev-gluon $HOME/.local/scripts/dev-gluon
+copy $DEV_ENV/gluon/.local/dev-env $HOME/.local/scripts/dev-env
 copy $DEV_ENV/gluon/.local/dev-commit $HOME/.local/scripts/dev-commit
 copy $DEV_ENV/gluon/.local/screenshot $HOME/.local/scripts/screenshot
 
