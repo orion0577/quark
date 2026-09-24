@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-paru -S --noconfirm --needed fzf btop ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ghostty fzf neovim tmux localsend brightnessctl ripgrep zen-browser-bin
+paru -S --noconfirm --needed fzf btop ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols ghostty fzf neovim tmux localsend brightnessctl ripgrep librewolf
 
 #ZSH INSTALL
 

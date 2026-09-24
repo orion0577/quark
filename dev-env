@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEV_ENV="$HOME/personal/dev"
+DEV_ENV="$HOME/personal/dev-env"
 dry_run="0"
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
@@ -51,24 +51,40 @@ update_files() {
     popd &> /dev/null
 }
 
-copy() {
-    log "removing: $2"
-    if [[ $dry_run == "0" ]]; then
-        rm $2
-    fi
-    log "copying: $1 to $2"
-    if [[ $dry_run == "0" ]]; then
-        cp $1 $2
+ensure_parent_dir() {
+    local parent
+    parent="$(dirname "$1")"
+
+    if [[ ! -d "$parent" ]]; then
+        log "creating directory: $parent"
+
+        if [[ $dry_run == "0" ]]; then
+            mkdir -p "$parent"
+        fi
     fi
 }
 
+copy() {
+    if [[ ! -e "$1" ]]; then
+        echo "ERROR: source does not exist: $1"
+        return 1
+    fi
 
+    ensure_parent_dir "$2"
 
+    log "removing: $2"
+    if [[ $dry_run == "0" ]]; then
+        rm -f "$2"
+    fi
+
+    log "copying: $1 to $2"
+    if [[ $dry_run == "0" ]]; then
+        cp "$1" "$2"
+    fi
+}
 update_files $DEV_ENV/env/.config $XDG_CONFIG_HOME
 update_files $DEV_ENV/env/.local $HOME/.local
 
-
-copy $DEV_ENV/env/home/.xprofile $HOME/.xprofile
 copy $DEV_ENV/env/.local/tmux-sessionizer $HOME/.local/scripts/tmux-sessionizer
 copy $DEV_ENV/env/home/.zsh_profile $HOME/.zsh_profile
 copy $DEV_ENV/env/home/.zshrc $HOME/.zshrc
@@ -78,5 +94,5 @@ copy $DEV_ENV/env/.local/dev-env $HOME/.local/scripts/dev-env
 copy $DEV_ENV/env/.local/dev-commit $HOME/.local/scripts/dev-commit
 copy $DEV_ENV/env/.local/server $HOME/.local/scripts/server
 copy $DEV_ENV/env/.local/screenshot $HOME/.local/scripts/screenshot
-copy $DEV_ENV/env/.local/note $HOME/.local/scripts/note
+
 hyprctl reload

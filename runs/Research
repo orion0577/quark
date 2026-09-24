@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-paru -S --noconfirm  obsidian libreoffice spotify zotero-bin
+paru -S --noconfirm  obsidian libreoffice
